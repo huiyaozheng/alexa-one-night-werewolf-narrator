@@ -1,31 +1,131 @@
 {
   "interactionModel": {
-    "languageModel": {
-      "invocationName": "one night werewolf",
-      "intents": [
-        {
-          "name": "AMAZON.CancelIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.HelpIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.StopIntent",
-          "samples": []
-        },
-        {
-          "name": "NewGameIntent",
-          "samples": [
-            "start a new game",
-            "start a new round",
-            "new game",
-            "another round"
+      "languageModel": {
+          "invocationName": "one night werewolf",
+          "intents": [
+              {
+                  "name": "AMAZON.FallbackIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.CancelIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.HelpIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.StopIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.NavigateHomeIntent",
+                  "samples": []
+              },
+              {
+                  "name": "startAWerewolfGame",
+                  "slots": [
+                      {
+                          "name": "playerNumber",
+                          "type": "AMAZON.NUMBER",
+                          "samples": [
+                              "thirty one",
+                              "one hundered",
+                              "one",
+                              "twelve",
+                              "eleven",
+                              "ten",
+                              "nine",
+                              "eight",
+                              "seven",
+                              "six"
+                          ]
+                      }
+                  ],
+                  "samples": [
+                      "please start an one night werewolf game with {playerNumber} people",
+                      "please start another round of one night werewolf",
+                      "please start a round of one night werewolf",
+                      "please start an one night werewolf game"
+                  ]
+              }
           ],
-          "slots": []
-        }
+          "types": []
+      },
+      "dialog": {
+          "intents": [
+              {
+                  "name": "startAWerewolfGame",
+                  "confirmationRequired": false,
+                  "prompts": {},
+                  "slots": [
+                      {
+                          "name": "playerNumber",
+                          "type": "AMAZON.NUMBER",
+                          "confirmationRequired": true,
+                          "elicitationRequired": true,
+                          "prompts": {
+                              "confirmation": "Confirm.Slot.373764392836.686692060211",
+                              "elicitation": "Elicit.Slot.373764392836.686692060211"
+                          },
+                          "validations": [
+                              {
+                                  "type": "isInSet",
+                                  "prompt": "Slot.Validation.373764392836.686692060211.1161865638488",
+                                  "values": [
+                                      "6",
+                                      "7",
+                                      "8",
+                                      "9",
+                                      "10",
+                                      "11",
+                                      "12"
+                                  ]
+                              }
+                          ]
+                      }
+                  ]
+              }
+          ],
+          "delegationStrategy": "ALWAYS"
+      },
+      "prompts": [
+          {
+              "id": "Elicit.Slot.373764392836.686692060211",
+              "variations": [
+                  {
+                      "type": "PlainText",
+                      "value": "For how many people"
+                  },
+                  {
+                      "type": "PlainText",
+                      "value": "How many players are there in this game"
+                  }
+              ]
+          },
+          {
+              "id": "Confirm.Slot.373764392836.686692060211",
+              "variations": [
+                  {
+                      "type": "PlainText",
+                      "value": "for {playerNumber} , am I right?"
+                  }
+              ]
+          },
+          {
+              "id": "Slot.Validation.373764392836.686692060211.1161865638488",
+              "variations": [
+                  {
+                      "type": "PlainText",
+                      "value": "The number of players cannot be more than twelve or fewer than six, so how many people do you want to play with?"
+                  },
+                  {
+                      "type": "PlainText",
+                      "value": "This game can only be played by six to twelve people, so how many people is your game for again?"
+                  }
+              ]
+          }
       ]
-    }
   }
 }
