@@ -23,7 +23,11 @@ FALLBACK_MESSAGE = "I am not expecting to trigger the fallback function."
 FALLBACK_REPROMPT = 'What can I help you with?'
 EXCEPTION_MESSAGE = "Sorry. I cannot help you with that."
 INVALID_NUMBER_MESSAGE = "Sorry, the player number is not between six and twelve and I do not have a configuration for that."
+<<<<<<< HEAD
 TEST_MESSAGE = "This output <break time='3s'/> speech uses SSML."
+=======
+#TEST_MESSAGE = "This is a test"
+>>>>>>> game process updated
 
 narration = {
     "start" : "Everyone, close your eyes.",
@@ -42,7 +46,7 @@ narration = {
     "robber_1" : "Robber, wake up. You must exchange your card with another player's card, and then view your new card.",
     "robber_2" : "Robber, close your eyes.",
     "troublemaker_1" : "Troublemaker, wake up. You may exchange cards between two other players.",
-    "troublemake_2" : "Troublemaker, close your eyes.",
+    "troublemaker_2" : "Troublemaker, close your eyes.",
     "village_idiot_1" : "Village idiot, wake up. You may move everyone's card except your own to the left or to the right.",
     "village_idiot_2" : "Village idiot, close your eyes.",
     "drunk_1" : "Drunk, wake up and exchange your card with a card in the centre.",
@@ -158,13 +162,44 @@ class StartAWerewolfGameHandler(AbstractRequestHandler):
     def can_handle(self, handler_input):
         return is_intent_name("StartAWerewolfGame")(handler_input)
 
+    def checkName(self, config, target):
+        for i in config:
+            if i["name"] == target:
+                return true
+            else:
+                false
+
     def handle(self, handler_input):
         logger.info("In StartAWerewolfGameHandler")
         slots = handler_input.request_envelope.request.intent.slots
         player_number = int(slots["playerNumber"].value)
+        message = narration["start"]
         if 6 <= player_number <=12:
             configuration = configurations[player_number]
-            handler_input.response_builder.speak(TEST_MESSAGE)
+            if checkName(configurations[playerNumber], "wolves"):
+                message += narration["wolves_1"] + "<break time = '10s'>" + narration["wolves_2"] + "<break time = '10s'>"
+            if checkName(configurations[playerNumber], "mystic_wolf"):
+                message += narration["mystic_wolf_1"] + "<break time = '10s'>" + narration["mystic_wolf_2"] + "<break time = '10s'>"
+            if checkName(configurations[playerNumber], "minion"):
+                message += narration["minion_1"] + "<break time = '10s'>" + narration["minion_2"] + "<break time = '10s'>"
+            if checkName(configurations[playerNumber], "seer"):
+                message += narration["seer_1"] + "<break time = '10s'>" + narration["seer_2"] + "<break time = '10s'>"
+            if checkName(configurations[playerNumber], "apprentice_seer"):
+                message += narration["apprentice_seer_1"] + "<break time = '10s'>" + narration["apprentice_seer_2"] + "<break time = '10s'>"
+            if checkName(configurations[playerNumber], "pi"):
+                message += narration["pi_1"] + "<break time = '10s'>" + narration["pi_2"] + "<break time = '10s'>"
+            if checkName(configurations[playerNumber], "robber"):
+                message += narration["robber_1"] + "<break time = '10s'>" + narration["robber_2"] + "<break time = '10s'>"
+            if checkName(configurations[playerNumber], "troublemaker"):
+                message += narration["troublemaker_1"] + "<break time = '10s'>" + narration["troublemaker_2"] + "<break time = '10s'>"
+            if checkName(configurations[playerNumber], "village_idiot"):
+                message += narration["village_idiot_1"] + "<break time = '10s'>" + narration["village_idiot_2"] + "<break time = '10s'>"
+            if checkName(configurations[playerNumber], "drunk"):
+                message += narration["drunk_1"] + "<break time = '10s'>" + narration["drunk_2"] + "<break time = '10s'>"
+            if checkName(configurations[playerNumber], "insomniac"):
+                message += narration["insomniac_1"] + "<break time = '10s'>" + narration["insomniac_2"] + "<break time = '10s'>"
+            message += narration["end"]
+            handler_input.response_builder.speak(message)
         else:
             handler_input.response_builder.speak(INVALID_NUMBER_MESSAGE)
         return handler_input.response_builder.response
