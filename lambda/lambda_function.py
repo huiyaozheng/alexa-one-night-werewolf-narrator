@@ -26,128 +26,128 @@ INVALID_NUMBER_MESSAGE = "Sorry, the player number is not between six and twelve
 TEST_MESSAGE = "This is a test"
 
 narration = {
-    "start" : "Everyone, close your eyes.";
-    "wolves_1" : "Werewolves, wake up and look for other werewolves. If there is only one werewolf, you may look at a card from the centre.";
-    "wolves_2" : "Werewolves, close your eyes.";
-    "mystic_wolf_1" : "Mystic wolf, if you did not look at a card from the centre just now, you can wake up and do so.";
-    "mystic_wolf_2" : "Mystic wolf, close your eyes.";
-    "minion_1" : "Minion, wake up. Werewolves, stick out your thumb so the minion can see who you are.";
-    "minion_2" : "Werewolves, put your thumb away. Minion, close your eyes.";
-    "seer_1" : "Seer, wake up. You may look at another player's card or two of the centre cards.";
-    "seer_2" : "Seer, close your eyes.";
-    "apprentice_seer_1" : "Apprentice seer, wake up. You may look at one of the centre cards.";
-    "apprentice_seer_2" : "Apprentice seer, close your eyes.";
-    "pi_1" : "Paranormal investigator, wake up. You may look at up to two cards of other players. However, if you see a wolf, you become a wolf for this game and stop your action.";
-    "pi_2" : "Paranormal investigator, close your eyes.";
-    "robber_1" : "Robber, wake up. You must exchange your card with another player's card, and then view your new card.";
-    "robber_2" : "Robber, close your eyes.";
-    "troublemaker_1" : "Troublemaker, wake up. You may exchange cards between two other players.";
-    "troublemake_2" : "Troublemaker, close your eyes.";
-    "village_idiot_1" : "Village idiot, wake up. You may move everyone's card except your own to the left or to the right.";
-    "village_idiot_2" : "Village idiot, close your eyes.";
-    "drunk_1" : "Drunk, wake up and exchange your card with a card in the centre.";
-    "drunk_2" : "Drunk, close your eyes.";
-    "insomniac_1" : "Insomniac, wake up and have a look at your card.";
-    "insomniac_2" : "Insomniac, close your eyes.";
+    "start" : "Everyone, close your eyes.",
+    "wolves_1" : "Werewolves, wake up and look for other werewolves. If there is only one werewolf, you may look at a card from the centre.",
+    "wolves_2" : "Werewolves, close your eyes.",
+    "mystic_wolf_1" : "Mystic wolf, if you did not look at a card from the centre just now, you can wake up and do so.",
+    "mystic_wolf_2" : "Mystic wolf, close your eyes.",
+    "minion_1" : "Minion, wake up. Werewolves, stick out your thumb so the minion can see who you are.",
+    "minion_2" : "Werewolves, put your thumb away. Minion, close your eyes.",
+    "seer_1" : "Seer, wake up. You may look at another player's card or two of the centre cards.",
+    "seer_2" : "Seer, close your eyes.",
+    "apprentice_seer_1" : "Apprentice seer, wake up. You may look at one of the centre cards.",
+    "apprentice_seer_2" : "Apprentice seer, close your eyes.",
+    "pi_1" : "Paranormal investigator, wake up. You may look at up to two cards of other players. However, if you see a wolf, you become a wolf for this game and stop your action.",
+    "pi_2" : "Paranormal investigator, close your eyes.",
+    "robber_1" : "Robber, wake up. You must exchange your card with another player's card, and then view your new card.",
+    "robber_2" : "Robber, close your eyes.",
+    "troublemaker_1" : "Troublemaker, wake up. You may exchange cards between two other players.",
+    "troublemake_2" : "Troublemaker, close your eyes.",
+    "village_idiot_1" : "Village idiot, wake up. You may move everyone's card except your own to the left or to the right.",
+    "village_idiot_2" : "Village idiot, close your eyes.",
+    "drunk_1" : "Drunk, wake up and exchange your card with a card in the centre.",
+    "drunk_2" : "Drunk, close your eyes.",
+    "insomniac_1" : "Insomniac, wake up and have a look at your card.",
+    "insomniac_2" : "Insomniac, close your eyes.",
     "end" : "Everyone, keep your eyes closed and reach out and move your card around slightly. Everyone, wake up!"
 }
 
 card_definitions = {
-    "wolves" : "black aces";
-    "mystic wolf" : "ace of spade";
-    "minion" : "a black two";
-    "seer" : "a red seven";
-    "apprentice seer" : "a red five";
-    "paranormal investigator" : "joker";
-    "robber" : "a red jack";
-    "trouble maker" : "a red queen";
-    "drunk" : "a red ten";
-    "insomniac" : "a red nine";
-    "tanner" : "a black four";
-    "village idiot" : "a red five";
+    "wolves" : "black aces",
+    "mystic wolf" : "ace of spade",
+    "minion" : "a black two",
+    "seer" : "a red seven",
+    "apprentice seer" : "a red five",
+    "paranormal investigator" : "joker",
+    "robber" : "a red jack",
+    "trouble maker" : "a red queen",
+    "drunk" : "a red ten",
+    "insomniac" : "a red nine",
+    "tanner" : "a black four",
+    "village idiot" : "a red five",
     "villagers" : "red threes"
 }
 
 configurations = {
-    6 : [{"name" : "wolves"; "quantity" : 1}, 
-         {"name" : "mystic wolf"; "quantity" : 1},
-         {"name" : "minion"; "quantity" : 1},
-         {"name" : "seer"; "quantity" : 1},
-         {"name" : "apprentice seer"; "quantity" : 1}, 
-         {"name" : "robber"; "quantity" : 1},
-         {"name" : "troublemaker"; "quantity" : 1},
-         {"name" : "drunk"; "quantity" : 1},
-         {"name" : "insomniac"; "quantity" : 1}];
-    7 : [{"name" : "wolves"; "quantity" : 1}, 
-         {"name" : "mystic wolf"; "quantity" : 1},
-         {"name" : "minion"; "quantity" : 1},
-         {"name" : "seer"; "quantity" : 1},
-         {"name" : "apprentice seer"; "quantity" : 1}, 
-         {"name" : "robber"; "quantity" : 1},
-         {"name" : "troublemaker"; "quantity" : 1},
-         {"name" : "drunk"; "quantity" : 1},
-         {"name" : "insomniac"; "quantity" : 1},
-         {"name" : "villager"; "quantity" : 1}];
-    8 : [{"name" : "wolves"; "quantity" : 1}, 
-         {"name" : "mystic wolf"; "quantity" : 1},
-         {"name" : "minion"; "quantity" : 1},
-         {"name" : "seer"; "quantity" : 1},
-         {"name" : "apprentice seer"; "quantity" : 1}, 
-         {"name" : "paranormal investigator"; "quantity" : 1}, 
-         {"name" : "robber"; "quantity" : 1},
-         {"name" : "troublemaker"; "quantity" : 1},
-         {"name" : "drunk"; "quantity" : 1},
-         {"name" : "insomniac"; "quantity" : 1},
-         {"name" : "villager"; "quantity" : 1}];
-    9 : [{"name" : "wolves"; "quantity" : 1}, 
-         {"name" : "mystic wolf"; "quantity" : 1},
-         {"name" : "minion"; "quantity" : 1},
-         {"name" : "seer"; "quantity" : 1},
-         {"name" : "apprentice seer"; "quantity" : 1}, 
-         {"name" : "paranormal investigator"; "quantity" : 1}, 
-         {"name" : "robber"; "quantity" : 1},
-         {"name" : "troublemaker"; "quantity" : 1},
-         {"name" : "drunk"; "quantity" : 1},
-         {"name" : "insomniac"; "quantity" : 1},
-         {"name" : "villager"; "quantity" : 2}];
-    10 : [{"name" : "wolves"; "quantity" : 1}, 
-         {"name" : "mystic wolf"; "quantity" : 1},
-         {"name" : "minion"; "quantity" : 1},
-         {"name" : "seer"; "quantity" : 1},
-         {"name" : "apprentice seer"; "quantity" : 1}, 
-         {"name" : "paranormal investigator"; "quantity" : 1}, 
-         {"name" : "robber"; "quantity" : 1},
-         {"name" : "troublemaker"; "quantity" : 1},
-         {"name" : "drunk"; "quantity" : 1},
-         {"name" : "insomniac"; "quantity" : 1},
-         {"name" : "tanner"; "quantity" : 1},
-         {"name" : "villager"; "quantity" : 2}];
-    11 : [{"name" : "wolves"; "quantity" : 1}, 
-         {"name" : "mystic wolf"; "quantity" : 1},
-         {"name" : "minion"; "quantity" : 1},
-         {"name" : "seer"; "quantity" : 1},
-         {"name" : "apprentice seer"; "quantity" : 1}, 
-         {"name" : "paranormal investigator"; "quantity" : 1}, 
-         {"name" : "robber"; "quantity" : 1},
-         {"name" : "troublemaker"; "quantity" : 1},
-         {"name" : "drunk"; "quantity" : 1},
-         {"name" : "insomniac"; "quantity" : 1},
-         {"name" : "tanner"; "quantity" : 1},
-         {"name" : "village idiot"; "quantity" : 1},
-         {"name" : "villager"; "quantity" : 2}];
-    12 : [{"name" : "wolves"; "quantity" : 1}, 
-         {"name" : "mystic wolf"; "quantity" : 1},
-         {"name" : "minion"; "quantity" : 1},
-         {"name" : "seer"; "quantity" : 1},
-         {"name" : "apprentice seer"; "quantity" : 1}, 
-         {"name" : "paranormal investigator"; "quantity" : 1}, 
-         {"name" : "robber"; "quantity" : 1},
-         {"name" : "troublemaker"; "quantity" : 1},
-         {"name" : "drunk"; "quantity" : 1},
-         {"name" : "insomniac"; "quantity" : 1},
-         {"name" : "tanner"; "quantity" : 1},
-         {"name" : "village idiot"; "quantity" : 1},
-         {"name" : "villager"; "quantity" : 3}];
+    6 : [{"name" : "wolves", "quantity" : 1}, 
+         {"name" : "mystic wolf", "quantity" : 1},
+         {"name" : "minion", "quantity" : 1},
+         {"name" : "seer", "quantity" : 1},
+         {"name" : "apprentice seer", "quantity" : 1}, 
+         {"name" : "robber", "quantity" : 1},
+         {"name" : "troublemaker", "quantity" : 1},
+         {"name" : "drunk", "quantity" : 1},
+         {"name" : "insomniac", "quantity" : 1}],
+    7 : [{"name" : "wolves", "quantity" : 1}, 
+         {"name" : "mystic wolf", "quantity" : 1},
+         {"name" : "minion", "quantity" : 1},
+         {"name" : "seer", "quantity" : 1},
+         {"name" : "apprentice seer", "quantity" : 1}, 
+         {"name" : "robber", "quantity" : 1},
+         {"name" : "troublemaker", "quantity" : 1},
+         {"name" : "drunk", "quantity" : 1},
+         {"name" : "insomniac", "quantity" : 1},
+         {"name" : "villager", "quantity" : 1}],
+    8 : [{"name" : "wolves", "quantity" : 1}, 
+         {"name" : "mystic wolf", "quantity" : 1},
+         {"name" : "minion", "quantity" : 1},
+         {"name" : "seer", "quantity" : 1},
+         {"name" : "apprentice seer", "quantity" : 1}, 
+         {"name" : "paranormal investigator", "quantity" : 1}, 
+         {"name" : "robber", "quantity" : 1},
+         {"name" : "troublemaker", "quantity" : 1},
+         {"name" : "drunk", "quantity" : 1},
+         {"name" : "insomniac", "quantity" : 1},
+         {"name" : "villager", "quantity" : 1}],
+    9 : [{"name" : "wolves", "quantity" : 1}, 
+         {"name" : "mystic wolf", "quantity" : 1},
+         {"name" : "minion", "quantity" : 1},
+         {"name" : "seer", "quantity" : 1},
+         {"name" : "apprentice seer", "quantity" : 1}, 
+         {"name" : "paranormal investigator", "quantity" : 1}, 
+         {"name" : "robber", "quantity" : 1},
+         {"name" : "troublemaker", "quantity" : 1},
+         {"name" : "drunk", "quantity" : 1},
+         {"name" : "insomniac", "quantity" : 1},
+         {"name" : "villager", "quantity" : 2}],
+    10 : [{"name" : "wolves", "quantity" : 1}, 
+         {"name" : "mystic wolf", "quantity" : 1},
+         {"name" : "minion", "quantity" : 1},
+         {"name" : "seer", "quantity" : 1},
+         {"name" : "apprentice seer", "quantity" : 1}, 
+         {"name" : "paranormal investigator", "quantity" : 1}, 
+         {"name" : "robber", "quantity" : 1},
+         {"name" : "troublemaker", "quantity" : 1},
+         {"name" : "drunk", "quantity" : 1},
+         {"name" : "insomniac", "quantity" : 1},
+         {"name" : "tanner", "quantity" : 1},
+         {"name" : "villager", "quantity" : 2}],
+    11 : [{"name" : "wolves", "quantity" : 1}, 
+         {"name" : "mystic wolf", "quantity" : 1},
+         {"name" : "minion", "quantity" : 1},
+         {"name" : "seer", "quantity" : 1},
+         {"name" : "apprentice seer", "quantity" : 1}, 
+         {"name" : "paranormal investigator", "quantity" : 1}, 
+         {"name" : "robber", "quantity" : 1},
+         {"name" : "troublemaker", "quantity" : 1},
+         {"name" : "drunk", "quantity" : 1},
+         {"name" : "insomniac", "quantity" : 1},
+         {"name" : "tanner", "quantity" : 1},
+         {"name" : "village idiot", "quantity" : 1},
+         {"name" : "villager", "quantity" : 2}],
+    12 : [{"name" : "wolves", "quantity" : 1}, 
+         {"name" : "mystic wolf", "quantity" : 1},
+         {"name" : "minion", "quantity" : 1},
+         {"name" : "seer", "quantity" : 1},
+         {"name" : "apprentice seer", "quantity" : 1}, 
+         {"name" : "paranormal investigator", "quantity" : 1}, 
+         {"name" : "robber", "quantity" : 1},
+         {"name" : "troublemaker", "quantity" : 1},
+         {"name" : "drunk", "quantity" : 1},
+         {"name" : "insomniac", "quantity" : 1},
+         {"name" : "tanner", "quantity" : 1},
+         {"name" : "village idiot", "quantity" : 1},
+         {"name" : "villager", "quantity" : 3}],
 }
 
 sb = SkillBuilder()
@@ -274,7 +274,8 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
 
 
 # Register intent handlers
-sb.add_request_handler(GetNewFactHandler())
+sb.add_request_handler(StartAWerewolfGameHandler())
+sb.add_request_handler(CheckConfigurationHandler())
 sb.add_request_handler(HelpIntentHandler())
 sb.add_request_handler(CancelOrStopIntentHandler())
 sb.add_request_handler(FallbackIntentHandler())
