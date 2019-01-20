@@ -75,10 +75,10 @@
                     }
                 ],
                 "samples": [
-                    "What is the configuration for {playerNumber} people?",
-                    "What is the configuration for {playerNumber} players?",
-                    "What cards do we need for {playerNumber} people?",
-                    "What cards do we need for {playerNumber} players?",
+                    "What is the configuration for {playerNumber} people",
+                    "What is the configuration for {playerNumber} players",
+                    "What cards do we need for {playerNumber} people",
+                    "What cards do we need for {playerNumber} players"
                 ]
               }
           ],
