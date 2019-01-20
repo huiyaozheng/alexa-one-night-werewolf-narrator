@@ -14,38 +14,14 @@ from ask_sdk_core.handler_input import HandlerInput
 from ask_sdk_model.ui import SimpleCard
 from ask_sdk_model import Response
 
-
-# =========================================================================================================================================
-# TODO: The items below this comment need your attention.
-# =========================================================================================================================================
-SKILL_NAME = "Space Facts"
+SKILL_NAME = "One night werewolf"
 GET_FACT_MESSAGE = "Here's your fact: "
-HELP_MESSAGE = "You can say tell me a space fact, or, you can say exit... What can I help you with?"
+HELP_MESSAGE = "You can say start a game with some number of people, or, you can say check the configuration for some number of people. What can I help you with?"
 HELP_REPROMPT = "What can I help you with?"
 STOP_MESSAGE = "Goodbye!"
-FALLBACK_MESSAGE = "The Space Facts skill can't help you with that.  It can help you discover facts about space if you say tell me a space fact. What can I help you with?"
+FALLBACK_MESSAGE = "I am not expecting to trigger the fallback function."
 FALLBACK_REPROMPT = 'What can I help you with?'
 EXCEPTION_MESSAGE = "Sorry. I cannot help you with that."
-
-# =========================================================================================================================================
-# TODO: Replace this data with your own.  You can find translations of this data at http://github.com/alexa/skill-sample-python-fact/lambda/data
-# =========================================================================================================================================
-
-data = [
-  'A year on Mercury is just 88 days long.',
-  'Despite being farther from the Sun, Venus experiences higher temperatures than Mercury.',
-  'Venus rotates counter-clockwise, possibly because of a collision in the past with an asteroid.',
-  'On Mars, the Sun appears about half the size as it does on Earth.',
-  'Earth is the only planet not named after a god.',
-  'Jupiter has the shortest day of all the planets.',
-  'The Milky Way galaxy will collide with the Andromeda Galaxy in about 5 billion years.',
-  'The Sun contains 99.86% of the mass in the Solar System.',
-  'The Sun is an almost perfect sphere.',
-  'A total solar eclipse can happen once every 1 to 2 years. This makes them a rare event.',
-  'Saturn radiates two and a half times more energy into space than it receives from the sun.',
-  'The temperature inside the Sun can reach 15 million degrees Celsius.',
-  'The Moon is moving approximately 3.8 cm away from our planet every year.',
-]
 
 narration = {
     "start" : "Everyone, close your eyes.";
@@ -74,7 +50,7 @@ narration = {
     "end" : "Everyone, keep your eyes closed and reach out and move your card around slightly. Everyone, wake up!"
 }
 
-card_definition = {
+card_definitions = {
     "wolves" : "black aces";
     "mystic wolf" : "ace of spade";
     "minion" : "a black two";
@@ -90,13 +66,104 @@ card_definition = {
     "villagers" : "red threes"
 }
 
-# =========================================================================================================================================
-# Editing anything below this line might break your skill.
-# =========================================================================================================================================
+configurations = {
+    6 : [{"name" : "wolves"; "quantity" : 1}, 
+         {"name" : "mystic wolf"; "quantity" : 1},
+         {"name" : "minion"; "quantity" : 1},
+         {"name" : "seer"; "quantity" : 1},
+         {"name" : "apprentice seer"; "quantity" : 1}, 
+         {"name" : "robber"; "quantity" : 1},
+         {"name" : "troublemaker"; "quantity" : 1},
+         {"name" : "drunk"; "quantity" : 1},
+         {"name" : "insomniac"; "quantity" : 1}];
+    7 : [{"name" : "wolves"; "quantity" : 1}, 
+         {"name" : "mystic wolf"; "quantity" : 1},
+         {"name" : "minion"; "quantity" : 1},
+         {"name" : "seer"; "quantity" : 1},
+         {"name" : "apprentice seer"; "quantity" : 1}, 
+         {"name" : "robber"; "quantity" : 1},
+         {"name" : "troublemaker"; "quantity" : 1},
+         {"name" : "drunk"; "quantity" : 1},
+         {"name" : "insomniac"; "quantity" : 1},
+         {"name" : "villager"; "quantity" : 1}];
+    8 : [{"name" : "wolves"; "quantity" : 1}, 
+         {"name" : "mystic wolf"; "quantity" : 1},
+         {"name" : "minion"; "quantity" : 1},
+         {"name" : "seer"; "quantity" : 1},
+         {"name" : "apprentice seer"; "quantity" : 1}, 
+         {"name" : "paranormal investigator"; "quantity" : 1}, 
+         {"name" : "robber"; "quantity" : 1},
+         {"name" : "troublemaker"; "quantity" : 1},
+         {"name" : "drunk"; "quantity" : 1},
+         {"name" : "insomniac"; "quantity" : 1},
+         {"name" : "villager"; "quantity" : 1}];
+    9 : [{"name" : "wolves"; "quantity" : 1}, 
+         {"name" : "mystic wolf"; "quantity" : 1},
+         {"name" : "minion"; "quantity" : 1},
+         {"name" : "seer"; "quantity" : 1},
+         {"name" : "apprentice seer"; "quantity" : 1}, 
+         {"name" : "paranormal investigator"; "quantity" : 1}, 
+         {"name" : "robber"; "quantity" : 1},
+         {"name" : "troublemaker"; "quantity" : 1},
+         {"name" : "drunk"; "quantity" : 1},
+         {"name" : "insomniac"; "quantity" : 1},
+         {"name" : "villager"; "quantity" : 2}];
+    10 : [{"name" : "wolves"; "quantity" : 1}, 
+         {"name" : "mystic wolf"; "quantity" : 1},
+         {"name" : "minion"; "quantity" : 1},
+         {"name" : "seer"; "quantity" : 1},
+         {"name" : "apprentice seer"; "quantity" : 1}, 
+         {"name" : "paranormal investigator"; "quantity" : 1}, 
+         {"name" : "robber"; "quantity" : 1},
+         {"name" : "troublemaker"; "quantity" : 1},
+         {"name" : "drunk"; "quantity" : 1},
+         {"name" : "insomniac"; "quantity" : 1},
+         {"name" : "tanner"; "quantity" : 1},
+         {"name" : "villager"; "quantity" : 2}];
+    11 : [{"name" : "wolves"; "quantity" : 1}, 
+         {"name" : "mystic wolf"; "quantity" : 1},
+         {"name" : "minion"; "quantity" : 1},
+         {"name" : "seer"; "quantity" : 1},
+         {"name" : "apprentice seer"; "quantity" : 1}, 
+         {"name" : "paranormal investigator"; "quantity" : 1}, 
+         {"name" : "robber"; "quantity" : 1},
+         {"name" : "troublemaker"; "quantity" : 1},
+         {"name" : "drunk"; "quantity" : 1},
+         {"name" : "insomniac"; "quantity" : 1},
+         {"name" : "tanner"; "quantity" : 1},
+         {"name" : "village idiot"; "quantity" : 1},
+         {"name" : "villager"; "quantity" : 2}];
+    12 : [{"name" : "wolves"; "quantity" : 1}, 
+         {"name" : "mystic wolf"; "quantity" : 1},
+         {"name" : "minion"; "quantity" : 1},
+         {"name" : "seer"; "quantity" : 1},
+         {"name" : "apprentice seer"; "quantity" : 1}, 
+         {"name" : "paranormal investigator"; "quantity" : 1}, 
+         {"name" : "robber"; "quantity" : 1},
+         {"name" : "troublemaker"; "quantity" : 1},
+         {"name" : "drunk"; "quantity" : 1},
+         {"name" : "insomniac"; "quantity" : 1},
+         {"name" : "tanner"; "quantity" : 1},
+         {"name" : "village idiot"; "quantity" : 1},
+         {"name" : "villager"; "quantity" : 3}];
+}
 
 sb = SkillBuilder()
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
+
+class StartAWerewolfGameHandler(AbstractRequestHandler):
+    def can_handle(self, handler_input):
+        return is_intent_name("StartAWerewolfGame")(handler_input)
+
+    def handle(self, handler_input):
+        logger.info("In StartAWerewolfGameHandler")
+        slots = handler_input.request_envelope.request.intent.slots
+        player_number = int(slots["playerNumber"].value)
+        if 6 <= player_number <=12:
+            configuration = configurations[player_number]
+        else:
+
 
 
 # Built-in Intent Handlers
@@ -186,22 +253,6 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
         return handler_input.response_builder.response
 
 
-# Request and Response loggers
-class RequestLogger(AbstractRequestInterceptor):
-    """Log the alexa requests."""
-    def process(self, handler_input):
-        # type: (HandlerInput) -> None
-        logger.debug("Alexa Request: {}".format(
-            handler_input.request_envelope.request))
-
-
-class ResponseLogger(AbstractResponseInterceptor):
-    """Log the alexa responses."""
-    def process(self, handler_input, response):
-        # type: (HandlerInput, Response) -> None
-        logger.debug("Alexa Response: {}".format(response))
-
-
 # Register intent handlers
 sb.add_request_handler(GetNewFactHandler())
 sb.add_request_handler(HelpIntentHandler())
@@ -211,10 +262,6 @@ sb.add_request_handler(SessionEndedRequestHandler())
 
 # Register exception handlers
 sb.add_exception_handler(CatchAllExceptionHandler())
-
-# TODO: Uncomment the following lines of code for request, response logs.
-# sb.add_global_request_interceptor(RequestLogger())
-# sb.add_global_response_interceptor(ResponseLogger())
 
 # Handler name that is used on AWS lambda
 lambda_handler = sb.lambda_handler()

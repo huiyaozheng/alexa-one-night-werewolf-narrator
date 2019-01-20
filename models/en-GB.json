@@ -24,14 +24,14 @@
                   "samples": []
               },
               {
-                  "name": "startAWerewolfGame",
+                  "name": "StartAWerewolfGame",
                   "slots": [
                       {
                           "name": "playerNumber",
                           "type": "AMAZON.NUMBER",
                           "samples": [
                               "thirty one",
-                              "one hundered",
+                              "one hundred",
                               "one",
                               "twelve",
                               "eleven",
