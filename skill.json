@@ -5,20 +5,17 @@
           "en-GB": {
             "summary": "A one night werewolf narrator.",
             "examplePhrases": [
-              "Alexa open space facts",
-              "Alexa ask space facts for a fact",
-              "Alexa tell space facts to tell me trivia"
+              "Alexa start a game"
             ],
             "keywords": [
-              "space",
-              "facts",
-              "trivia"
+              "werewolf",
+              "party game"
             ],
-            "name": "Space Facts",
-            "description": "Ask for Space Facts, and learn about what really matters, like dark matter.\n\nSpace Facts provides fun the whole family can enjoy and is guaranteed to make you smarter.\n\nTo start, just say \"Alexa, launch Space Facts\" or \"Alexa, open Space Facts\" to get a fact\".\n\nAt anytime, you can stop by saying \"Alexa, stop\""
+            "name": "One Night Werewolf",
+            "description": "Let Alexa be your one night werewolf narrator! Works for 6-12 people."
           }
         },
-        "category": "KNOWLEDGE_AND_TRIVIA"
+        "category": "PARTY_GAME"
       },
       "apis": {
         "custom": {

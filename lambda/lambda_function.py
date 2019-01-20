@@ -23,11 +23,7 @@ FALLBACK_MESSAGE = "I am not expecting to trigger the fallback function."
 FALLBACK_REPROMPT = 'What can I help you with?'
 EXCEPTION_MESSAGE = "Sorry. I cannot help you with that."
 INVALID_NUMBER_MESSAGE = "Sorry, the player number is not between six and twelve and I do not have a configuration for that."
-<<<<<<< HEAD
-TEST_MESSAGE = "This output <break time='3s'/> speech uses SSML."
-=======
-#TEST_MESSAGE = "This is a test"
->>>>>>> game process updated
+
 
 narration = {
     "start" : "Everyone, close your eyes.",
@@ -158,16 +154,16 @@ sb = SkillBuilder()
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
+def check_role_existence(config, target):
+        for i in config:
+            if i["name"] == target:
+                return True    
+        return False
+
 class StartAWerewolfGameHandler(AbstractRequestHandler):
     def can_handle(self, handler_input):
         return is_intent_name("StartAWerewolfGame")(handler_input)
 
-    def checkName(self, config, target):
-        for i in config:
-            if i["name"] == target:
-                return true
-            else:
-                false
 
     def handle(self, handler_input):
         logger.info("In StartAWerewolfGameHandler")
@@ -176,27 +172,27 @@ class StartAWerewolfGameHandler(AbstractRequestHandler):
         message = narration["start"]
         if 6 <= player_number <=12:
             configuration = configurations[player_number]
-            if checkName(configurations[playerNumber], "wolves"):
+            if check_role_existence(configuration, "wolves"):
                 message += narration["wolves_1"] + "<break time = '10s'>" + narration["wolves_2"] + "<break time = '10s'>"
-            if checkName(configurations[playerNumber], "mystic_wolf"):
+            if check_role_existence(configuration, "mystic_wolf"):
                 message += narration["mystic_wolf_1"] + "<break time = '10s'>" + narration["mystic_wolf_2"] + "<break time = '10s'>"
-            if checkName(configurations[playerNumber], "minion"):
+            if check_role_existence(configuration, "minion"):
                 message += narration["minion_1"] + "<break time = '10s'>" + narration["minion_2"] + "<break time = '10s'>"
-            if checkName(configurations[playerNumber], "seer"):
+            if check_role_existence(configuration, "seer"):
                 message += narration["seer_1"] + "<break time = '10s'>" + narration["seer_2"] + "<break time = '10s'>"
-            if checkName(configurations[playerNumber], "apprentice_seer"):
+            if check_role_existence(configuration, "apprentice_seer"):
                 message += narration["apprentice_seer_1"] + "<break time = '10s'>" + narration["apprentice_seer_2"] + "<break time = '10s'>"
-            if checkName(configurations[playerNumber], "pi"):
+            if check_role_existence(configuration, "pi"):
                 message += narration["pi_1"] + "<break time = '10s'>" + narration["pi_2"] + "<break time = '10s'>"
-            if checkName(configurations[playerNumber], "robber"):
+            if check_role_existence(configuration, "robber"):
                 message += narration["robber_1"] + "<break time = '10s'>" + narration["robber_2"] + "<break time = '10s'>"
-            if checkName(configurations[playerNumber], "troublemaker"):
+            if check_role_existence(configuration, "troublemaker"):
                 message += narration["troublemaker_1"] + "<break time = '10s'>" + narration["troublemaker_2"] + "<break time = '10s'>"
-            if checkName(configurations[playerNumber], "village_idiot"):
+            if check_role_existence(configuration, "village_idiot"):
                 message += narration["village_idiot_1"] + "<break time = '10s'>" + narration["village_idiot_2"] + "<break time = '10s'>"
-            if checkName(configurations[playerNumber], "drunk"):
+            if check_role_existence(configuration, "drunk"):
                 message += narration["drunk_1"] + "<break time = '10s'>" + narration["drunk_2"] + "<break time = '10s'>"
-            if checkName(configurations[playerNumber], "insomniac"):
+            if check_role_existence(configuration, "insomniac"):
                 message += narration["insomniac_1"] + "<break time = '10s'>" + narration["insomniac_2"] + "<break time = '10s'>"
             message += narration["end"]
             handler_input.response_builder.speak(message)
