@@ -23,7 +23,7 @@ FALLBACK_MESSAGE = "I am not expecting to trigger the fallback function."
 FALLBACK_REPROMPT = 'What can I help you with?'
 EXCEPTION_MESSAGE = "Sorry. I cannot help you with that."
 INVALID_NUMBER_MESSAGE = "Sorry, the player number is not between six and twelve and I do not have a configuration for that."
-TEST_MESSAGE = "This is a test"
+TEST_MESSAGE = "This output <break time='3s'/> speech uses SSML."
 
 narration = {
     "start" : "Everyone, close your eyes.",
@@ -60,12 +60,12 @@ card_definitions = {
     "apprentice seer" : "a red five",
     "paranormal investigator" : "joker",
     "robber" : "a red jack",
-    "trouble maker" : "a red queen",
+    "troublemaker" : "a red queen",
     "drunk" : "a red ten",
     "insomniac" : "a red nine",
     "tanner" : "a black four",
     "village idiot" : "a red five",
-    "villagers" : "red threes"
+    "villager" : "red threes"
 }
 
 configurations = {
@@ -181,7 +181,12 @@ class CheckConfigurationHandler(AbstractRequestHandler):
         player_number = int(slots["playerNumber"].value)
         if 6 <= player_number <=12:
             configuration = configurations[player_number]
-            handler_input.response_builder.speak(TEST_MESSAGE)
+            output = "For {playerNumber} players, you will need the following cards. "
+            for role in configuration:
+                role_name = role["name"]
+                role_quantity = role["quantity"]
+                output = output + str(role_quantity) + card_definitions[role_name] + " for " + role_name + ". <break time = 0.5s>"
+            handler_input.response_builder.speak(output)
         else:
             handler_input.response_builder.speak(INVALID_NUMBER_MESSAGE)
         return handler_input.response_builder.response
