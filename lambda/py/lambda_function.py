@@ -22,6 +22,8 @@ STOP_MESSAGE = "Goodbye!"
 FALLBACK_MESSAGE = "I am not expecting to trigger the fallback function."
 FALLBACK_REPROMPT = 'What can I help you with?'
 EXCEPTION_MESSAGE = "Sorry. I cannot help you with that."
+INVALID_NUMBER_MESSAGE = "Sorry, the player number is not between six and twelve and I do not have a configuration for that."
+TEST_MESSAGE = "This is a test"
 
 narration = {
     "start" : "Everyone, close your eyes.";
@@ -162,9 +164,27 @@ class StartAWerewolfGameHandler(AbstractRequestHandler):
         player_number = int(slots["playerNumber"].value)
         if 6 <= player_number <=12:
             configuration = configurations[player_number]
+            handler_input.response_builder.speak(TEST_MESSAGE)
         else:
+            handler_input.response_builder.speak(INVALID_NUMBER_MESSAGE)
+        return handler_input.response_builder.response
 
+class CheckConfigurationHandler(AbstractRequestHandler):
+    def speak_configuration(self, configuration):
+        return 
+    def can_handle(self, handler_input):
+        return is_intent_name("CheckConfiguration")(handler_input)
 
+    def handle(self, handler_input):
+        logger.info("In CheckConfigurationHandler")
+        slots = handler_input.request_envelope.request.intent.slots
+        player_number = int(slots["playerNumber"].value)
+        if 6 <= player_number <=12:
+            configuration = configurations[player_number]
+            handler_input.response_builder.speak(TEST_MESSAGE)
+        else:
+            handler_input.response_builder.speak(INVALID_NUMBER_MESSAGE)
+        return handler_input.response_builder.response
 
 # Built-in Intent Handlers
 class HelpIntentHandler(AbstractRequestHandler):

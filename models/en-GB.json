@@ -44,11 +44,42 @@
                       }
                   ],
                   "samples": [
-                      "please start an one night werewolf game with {playerNumber} people",
-                      "please start another round of one night werewolf",
-                      "please start a round of one night werewolf",
-                      "please start an one night werewolf game"
+                      "Please start an one night werewolf game with {playerNumber} people",
+                      "Start an one night werewolf game with {playerNumber} people",
+                      "Start a round with {playerNumber} people",
+                      "We are playing with {playerNumber} people",
+                      "Please start an one night werewolf game with {playerNumber} players",
+                      "Start an one night werewolf game with {playerNumber} players",
+                      "Start a round with {playerNumber} players",
+                      "We are playing with {playerNumber} players"
                   ]
+              },
+              {
+                  "name" : "CheckConfiguration",
+                  "slots" : [
+                    {
+                        "name": "playerNumber",
+                        "type": "AMAZON.NUMBER",
+                        "samples": [
+                            "thirty one",
+                            "one hundred",
+                            "one",
+                            "twelve",
+                            "eleven",
+                            "ten",
+                            "nine",
+                            "eight",
+                            "seven",
+                            "six"
+                        ]
+                    }
+                ],
+                "samples": [
+                    "What is the configuration for {playerNumber} people?",
+                    "What is the configuration for {playerNumber} players?",
+                    "What cards do we need for {playerNumber} people?",
+                    "What cards do we need for {playerNumber} players?",
+                ]
               }
           ],
           "types": []
@@ -56,7 +87,7 @@
       "dialog": {
           "intents": [
               {
-                  "name": "startAWerewolfGame",
+                  "name": "StartAWerewolfGame",
                   "confirmationRequired": false,
                   "prompts": {},
                   "slots": [
@@ -109,7 +140,7 @@
               "variations": [
                   {
                       "type": "PlainText",
-                      "value": "for {playerNumber} , am I right?"
+                      "value": "for {playerNumber} players, am I right?"
                   }
               ]
           },
